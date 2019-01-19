@@ -14,7 +14,11 @@
 #import <AssetsLibrary/ALAsset.h>
 #import "SegmentedExtension/UISegmentedControl+WithoutBorder.h"
 #import "CustomView/YView.h"
+#import "Utility.h"
+
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, ICGVideoTrimmerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *endTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *startTimeLabel;
 @property (weak, nonatomic) IBOutlet UIView *indicatorView;
 @property (weak, nonatomic) IBOutlet UIButton *startPosButton;
 @property (weak, nonatomic) IBOutlet UIButton *endPosButton;
@@ -52,10 +56,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    YView *view = [[YView alloc] initWithFrame:CGRectMake((CGRectGetMidX(self.view.frame)-25)/2, (CGRectGetMaxY(self.view.frame)-CGRectGetHeight(self.trimmerView.frame)-CGRectGetHeight(self.startEndContainer.frame)/2 -30)/2,40, CGRectGetHeight(self.trimmerView.frame)+CGRectGetHeight(self.startEndContainer.frame)/2)];
+    YView *view = [[YView alloc] initWithFrame:CGRectMake((CGRectGetMidX(self.view.frame)-20)/2, (CGRectGetMaxY(self.view.frame)-CGRectGetHeight(self.trimmerView.frame)-CGRectGetHeight(self.startEndContainer.frame)/2 -30)/2,40, CGRectGetHeight(self.trimmerView.frame)+CGRectGetHeight(self.startEndContainer.frame)/2)];
     NSLog(@"YView %@",NSStringFromCGRect(view.frame));
     [self.view addSubview:view];
     [self.view bringSubviewToFront:view];
+    
+    self.endTimeLabel.text = [Utility secondToTimeFormat:CMTimeGetSeconds([self.asset duration])];
+    [self.endPosButton setImage:[UIImage imageNamed:@"end_here_after_press_2"] forState:UIControlStateNormal];
+    self.endPosButton.enabled  = false;
+
     
     [self loadVideoView];
     [self.segmentedControl removeBorder];
@@ -111,6 +120,10 @@
 //    NSLog(@"start time %.3f end time %.3f",startTime,endTime);
     self.startTime = startTime;
     self.stopTime = endTime;
+    
+    self.startTimeLabel.text =  [Utility secondToTimeFormat:startTime];
+;
+    self.endTimeLabel.text = [Utility secondToTimeFormat:endTime];
 
 }
 
@@ -120,6 +133,7 @@
     CGFloat rightOverlayOriginX = [[infoDict valueForKey:@"rightOverlayViewOrigin"] floatValue];
     CGFloat contentOffsetX = [[infoDict valueForKey:@"contentOffset"] floatValue];
     CGFloat currentPosition = [[infoDict valueForKey:@"currentPosition"] floatValue];
+    self.currentTimeLabel.text = [Utility secondToTimeFormat:currentPosition];
     [self seekVideoToPos:currentPosition];
     if (contentOffsetX+CGRectGetWidth([UIScreen mainScreen].bounds)/2 >=  rightOverlayOriginX){
         [self.startPosButton setImage:[UIImage imageNamed:@"end_here_after_press"] forState:UIControlStateNormal];
@@ -486,9 +500,8 @@
 
 - (void)seekVideoToPos:(CGFloat)pos
 {
-    self.currentTimeLabel.text = [NSString stringWithFormat:@"%0.2f",pos];
     self.videoPlaybackPosition = pos;
-    CMTime time = CMTimeMakeWithSeconds(self.videoPlaybackPosition, self.player.currentTime.timescale);
+    CMTime time = CMTimeMakeWithSeconds(self.videoPlaybackPosition,20);
     NSLog(@"seekVideoToPos time:%.2f %.2d", CMTimeGetSeconds(time),self.player.currentTime.timescale);
     [self.player seekToTime:time toleranceBefore:kCMTimeZero toleranceAfter:kCMTimeZero];
 }

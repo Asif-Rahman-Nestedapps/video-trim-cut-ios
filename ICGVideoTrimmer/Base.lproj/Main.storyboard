@@ -225,8 +225,20 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tws-dF-05t">
                                 <rect key="frame" x="0.0" y="637" width="375" height="30"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-vE-UUf">
-                                        <rect key="frame" x="172" y="8" width="31" height="14.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkf-vE-UUf">
+                                        <rect key="frame" x="170.5" y="8" width="34" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SGr-wY-dyr">
+                                        <rect key="frame" x="334" y="8" width="31" height="14.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Wc-rk-70i">
+                                        <rect key="frame" x="10" y="8" width="34" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -234,9 +246,13 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.12549019610000001" green="0.12549019610000001" blue="0.12549019610000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
+                                    <constraint firstItem="SGr-wY-dyr" firstAttribute="centerY" secondItem="Tws-dF-05t" secondAttribute="centerY" id="3Kk-Bi-jQR"/>
+                                    <constraint firstItem="1Wc-rk-70i" firstAttribute="leading" secondItem="Tws-dF-05t" secondAttribute="leading" constant="10" id="A5Z-jx-NtP"/>
+                                    <constraint firstAttribute="trailing" secondItem="SGr-wY-dyr" secondAttribute="trailing" constant="10" id="hKP-rd-8ht"/>
                                     <constraint firstItem="Mkf-vE-UUf" firstAttribute="centerX" secondItem="Tws-dF-05t" secondAttribute="centerX" id="mHU-ty-iil"/>
                                     <constraint firstItem="Mkf-vE-UUf" firstAttribute="centerY" secondItem="Tws-dF-05t" secondAttribute="centerY" id="oaw-Pz-0ao"/>
                                     <constraint firstAttribute="height" constant="30" id="pg0-WP-BIb"/>
+                                    <constraint firstItem="1Wc-rk-70i" firstAttribute="centerY" secondItem="Tws-dF-05t" secondAttribute="centerY" id="ysP-pQ-Rz9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -275,10 +291,12 @@
                     <connections>
                         <outlet property="currentTimeLabel" destination="Mkf-vE-UUf" id="FDS-bp-8MZ"/>
                         <outlet property="endPosButton" destination="d7e-u4-dgl" id="BbE-xf-ag5"/>
+                        <outlet property="endTimeLabel" destination="SGr-wY-dyr" id="45w-ze-UFZ"/>
                         <outlet property="indicatorView" destination="ASf-33-9KX" id="3jO-Ny-2da"/>
                         <outlet property="segmentedControl" destination="7Yv-dO-Kxe" id="Vlx-8w-ejt"/>
                         <outlet property="startEndContainer" destination="hvg-Ut-ftA" id="Rhv-5D-kBn"/>
                         <outlet property="startPosButton" destination="5w4-db-mth" id="FBl-SK-6Tx"/>
+                        <outlet property="startTimeLabel" destination="1Wc-rk-70i" id="x2o-ZG-DW6"/>
                         <outlet property="trimmerView" destination="orR-Nb-icn" id="JAL-XW-gzL"/>
                         <outlet property="videoLayer" destination="NFN-te-fPQ" id="vT6-kQ-4A1"/>
                         <outlet property="videoPlayer" destination="GF0-OD-nYr" id="fVJ-cH-Pw9"/>

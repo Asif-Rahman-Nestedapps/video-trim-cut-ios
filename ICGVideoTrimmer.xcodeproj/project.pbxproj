@@ -16,6 +16,7 @@
 		AEBE109C21F1CECE00DE69D3 /* UISegmentedControl+WithoutBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBE109B21F1CECE00DE69D3 /* UISegmentedControl+WithoutBorder.m */; };
 		AED6CD3821EE5117007E4AC3 /* MKOVideoMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6CD3621EE5117007E4AC3 /* MKOVideoMerge.m */; };
 		AEEB129E21F361EE00203CED /* SampleVideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = AEEB129D21F361EE00203CED /* SampleVideo.mp4 */; };
+		AEEB12A121F38C1200203CED /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = AEEB12A021F38C1200203CED /* Utility.m */; };
 		DE4F1F581A67C9BB00478F77 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F571A67C9BB00478F77 /* main.m */; };
 		DE4F1F5B1A67C9BB00478F77 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F5A1A67C9BB00478F77 /* AppDelegate.m */; };
 		DE4F1F5E1A67C9BB00478F77 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE4F1F5D1A67C9BB00478F77 /* ViewController.m */; };
@@ -52,6 +53,8 @@
 		AED6CD3621EE5117007E4AC3 /* MKOVideoMerge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MKOVideoMerge.m; sourceTree = "<group>"; };
 		AED6CD3721EE5117007E4AC3 /* MKOVideoMerge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MKOVideoMerge.h; sourceTree = "<group>"; };
 		AEEB129D21F361EE00203CED /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
+		AEEB129F21F38C1200203CED /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		AEEB12A021F38C1200203CED /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		DE4F1F521A67C9BB00478F77 /* ICGVideoTrimmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICGVideoTrimmer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4F1F561A67C9BB00478F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4F1F571A67C9BB00478F77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -157,6 +160,8 @@
 				AEBE109921F1CECE00DE69D3 /* SegmentedExtension */,
 				AED6CD3521EE5117007E4AC3 /* MKOVideoMerge */,
 				2CE63A071A74C43500B804F2 /* Source */,
+				AEEB129F21F38C1200203CED /* Utility.h */,
+				AEEB12A021F38C1200203CED /* Utility.m */,
 				DE4F1F591A67C9BB00478F77 /* AppDelegate.h */,
 				DE4F1F5A1A67C9BB00478F77 /* AppDelegate.m */,
 				DE4F1F5C1A67C9BB00478F77 /* ViewController.h */,
@@ -300,6 +305,7 @@
 			files = (
 				AE8994D121F275200035DE7A /* YView.m in Sources */,
 				AED6CD3821EE5117007E4AC3 /* MKOVideoMerge.m in Sources */,
+				AEEB12A121F38C1200203CED /* Utility.m in Sources */,
 				2CE63A0F1A74C43500B804F2 /* ICGThumbView.m in Sources */,
 				DE4F1F5E1A67C9BB00478F77 /* ViewController.m in Sources */,
 				2CE63A0E1A74C43500B804F2 /* ICGRulerView.m in Sources */,

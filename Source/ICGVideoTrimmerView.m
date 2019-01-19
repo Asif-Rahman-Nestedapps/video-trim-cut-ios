@@ -122,12 +122,12 @@
 
 - (CGFloat)maxLength
 {
-    return _maxLength ?: 15.0;
+    return _maxLength ?: 12.0;
 }
 
 - (CGFloat)minLength
 {
-    return _minLength ?: 3;
+    return _minLength ?: 3.0;
 }
 
 - (UIColor *)trackerColor
@@ -385,8 +385,8 @@
     NSLog(@"leftOverlayView:%f , rightOverlayView:%f contentOffset.x:%f", CGRectGetMaxX(self.leftOverlayView.frame) , CGRectGetMaxX(self.rightOverlayView.frame) ,self.scrollView.contentOffset.x);
     
     
-    CGFloat start = CGRectGetMaxX(self.leftOverlayView.frame) / self.widthPerSecond + self.thumbWidth/ (self.widthPerSecond);
-    CGFloat end = CGRectGetMinX(self.rightOverlayView.frame) / self.widthPerSecond + self.thumbWidth / self.widthPerSecond;
+    CGFloat start = (CGRectGetMaxX(self.leftOverlayView.frame) -CGRectGetWidth([UIScreen mainScreen].bounds)/2-self.thumbWidth)/ self.widthPerSecond + self.thumbWidth/ (self.widthPerSecond);
+    CGFloat end = (CGRectGetMinX(self.rightOverlayView.frame) -CGRectGetWidth([UIScreen mainScreen].bounds)/2-self.thumbWidth)/ self.widthPerSecond + self.thumbWidth / self.widthPerSecond;
     
     if (!self.trackerView.hidden && start != self.startTime) {
         [self seekToTime:start];
@@ -404,6 +404,11 @@
     self.startTime = start;
     self.endTime = end;
     
+    if (self.rightOverlayView.hidden) {
+        self.startTime = 0.00;
+        self.endTime = CMTimeGetSeconds([self.asset duration]);
+    }
+
     
     if([self.delegate respondsToSelector:@selector(trimmerView:didChangeLeftPosition:rightPosition:)])
     {
@@ -444,6 +449,7 @@
     if (halfWayImage != NULL) {
         UIImageView *tmp = [[UIImageView alloc] initWithImage:videoScreen];
         CGRect rect = tmp.frame;
+        rect.origin.x = CGRectGetWidth([UIScreen mainScreen].bounds)/2-10;
         rect.size.width = videoScreen.size.width;
         tmp.frame = rect;
         [self.frameView addSubview:tmp];
@@ -460,7 +466,7 @@
     CGFloat frameViewFrameWidth = factor * screenWidth;
     [self.frameView setFrame:CGRectMake(self.thumbWidth, 0, frameViewFrameWidth, CGRectGetHeight(self.frameView.frame))];
     CGFloat contentViewFrameWidth = CMTimeGetSeconds([self.asset duration]) <= self.maxLength + 0.5 ? self.bounds.size.width : frameViewFrameWidth + 2*self.thumbWidth;
-    [self.contentView setFrame:CGRectMake(0, 0, contentViewFrameWidth, CGRectGetHeight(self.contentView.frame))];
+    [self.contentView setFrame:CGRectMake(0, 0, contentViewFrameWidth+CGRectGetWidth([UIScreen mainScreen].bounds)/2, CGRectGetHeight(self.contentView.frame))];
     [self.scrollView setContentSize:self.contentView.frame.size];
     NSInteger minFramesNeeded = screenWidth / picWidth + 1;
     actualFramesNeeded =  factor * minFramesNeeded + 1;
@@ -470,7 +476,7 @@
     
     int preferredWidth = 0;
     NSMutableArray *times = [[NSMutableArray alloc] init];
-    for (int i=1; i<actualFramesNeeded; i++){
+    for (int i=1; i<actualFramesNeeded+self.maxLength; i++){
         
         CMTime time = CMTimeMakeWithSeconds(i*durationPerFrame, 600);
         [times addObject:[NSValue valueWithCMTime:time]];
@@ -479,7 +485,7 @@
         tmp.tag = i;
         
         CGRect currentFrame = tmp.frame;
-        currentFrame.origin.x = i*picWidth;
+        currentFrame.origin.x =CGRectGetWidth([UIScreen mainScreen].bounds)/2-10 + i*picWidth;
         
         currentFrame.size.width = picWidth;
         preferredWidth += currentFrame.size.width;
@@ -536,7 +542,7 @@
             [scrollView setContentOffset:CGPointZero];
         }];
     }
-    CGFloat point = self.scrollView.contentOffset.x+(CGRectGetWidth([UIScreen mainScreen].bounds)/2);
+    CGFloat point = self.scrollView.contentOffset.x-self.thumbWidth;
 
     CGFloat currentPosition = point/self.widthPerSecond + self.thumbWidth/ (self.widthPerSecond);
 
@@ -547,9 +553,11 @@
     [dict setValue:[NSString stringWithFormat:@"%f",self.leftOverlayView.frame.size.width] forKey:@"lefttOverlayViewOrigin"];
     [dict setValue:[NSString stringWithFormat:@"%f",currentPosition] forKey:@"currentPosition"];
 
-    
-    if ([self.delegate respondsToSelector:@selector(disableSeekPosControl:)]) {
-        [self.delegate disableSeekPosControl:dict];
+    if (!self.rightOverlayView.hidden) {
+        if ([self.delegate respondsToSelector:@selector(disableSeekPosControl:)]) {
+            [self.delegate disableSeekPosControl:dict];
+        }
+
     }
 
 //    if (scrollView.contentOffset.x+CGRectGetWidth([UIScreen mainScreen].bounds)/2 >= self.rightOverlayView.frame.origin.x) {
