@@ -7,7 +7,7 @@ This app is created on the basis of ICGVideoTrimmerView (third party library).
 Takes a sample video from app's bundle.
 The assets are generated from the sample video using AVAssetImageGenerator, set to imageview then added to scrollview.
 The UI is mostly implemented in Storyboard using autolayout, i extended UISegemntedControl to have the same look and feel rather than using asset. The scrubber view is created using UIBeizierPath.
-The edited videos are saved in photos. Note, to see the cut video in your photos, you have to build the application in device.
+The edited videos are saved in photos. Note, to see the cut video in your photos, you have to build the application in real device.
 
 
 Known Issues
