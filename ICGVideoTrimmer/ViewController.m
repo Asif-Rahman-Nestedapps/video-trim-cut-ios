@@ -53,6 +53,8 @@
 
 @implementation ViewController
 
+#pragma mark - View-Life-Cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -79,6 +81,46 @@
 }
 
 
+#pragma mark - LoadVideoView
+
+
+-(void)loadVideoView{
+    NSString *sampleZvideoFilePath = [[NSBundle mainBundle] pathForResource:@"SampleVideo" ofType:@"mp4"];
+    NSURL *url =[NSURL fileURLWithPath:sampleZvideoFilePath];
+    self.asset = [AVAsset assetWithURL:url];
+    
+    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:self.asset];
+    
+    self.player = [AVPlayer playerWithPlayerItem:item];
+    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
+    self.playerLayer.contentsGravity = AVLayerVideoGravityResizeAspect;
+    self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+    
+    [self.videoLayer.layer addSublayer:self.playerLayer];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnVideoLayer:)];
+    [self.videoLayer addGestureRecognizer:tap];
+    
+    self.videoPlaybackPosition = 0;
+    
+    [self tapOnVideoLayer:tap];
+    
+    // set properties for trimmer view
+    [self.trimmerView setThemeColor:[UIColor lightGrayColor]];
+    [self.trimmerView setAsset:self.asset];
+    [self.trimmerView setShowsRulerView:YES];
+    [self.trimmerView setRulerLabelInterval:10];
+    [self.trimmerView setTrackerColor:[UIColor cyanColor]];
+    [self.trimmerView setDelegate:self];
+    
+    // important: reset subviews
+    [self.trimmerView resetSubviews];
+    
+    [self.trimButton setHidden:NO];
+    
+}
+
+
 #pragma mark - SegmentedControlAction
 
 - (IBAction)doneButtonAction:(id)sender {
@@ -90,17 +132,18 @@
 
 }
 
-#pragma mark - ICGVideoTrimmerDelegate
-
 - (IBAction)endButtonAction:(id)sender {
     [self.trimmerView setPointEnd];
-
+    
 }
 - (IBAction)startButtonAction:(id)sender {
     
-        [self.trimmerView setPointStart];
-
+    [self.trimmerView setPointStart];
+    
 }
+
+#pragma mark - ICGVideoTrimmerDelegate
+
 - (void)trimmerView:(ICGVideoTrimmerView *)trimmerView didChangeLeftPosition:(CGFloat)startTime rightPosition:(CGFloat)endTime
 {
     _restartOnPlay = YES;
@@ -146,8 +189,6 @@
         self.startPosButton.enabled  = true;
         [self.endPosButton setImage:[UIImage imageNamed:@"end_here_2"] forState:UIControlStateNormal];
         self.endPosButton.enabled  = true;
-
-
     }
 }
 
@@ -190,43 +231,6 @@
     [self.trimButton setHidden:NO];
 }
 
-
--(void)loadVideoView{
-    NSString *sampleZvideoFilePath = [[NSBundle mainBundle] pathForResource:@"SampleVideo" ofType:@"mp4"];
-    NSURL *url =[NSURL fileURLWithPath:sampleZvideoFilePath];
-    self.asset = [AVAsset assetWithURL:url];
-    
-    AVPlayerItem *item = [AVPlayerItem playerItemWithAsset:self.asset];
-    
-    self.player = [AVPlayer playerWithPlayerItem:item];
-    self.playerLayer = [AVPlayerLayer playerLayerWithPlayer:self.player];
-    self.playerLayer.contentsGravity = AVLayerVideoGravityResizeAspect;
-    self.player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
-    
-    [self.videoLayer.layer addSublayer:self.playerLayer];
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapOnVideoLayer:)];
-    [self.videoLayer addGestureRecognizer:tap];
-    
-    self.videoPlaybackPosition = 0;
-    
-    [self tapOnVideoLayer:tap];
-    
-    // set properties for trimmer view
-    [self.trimmerView setThemeColor:[UIColor lightGrayColor]];
-    [self.trimmerView setAsset:self.asset];
-    [self.trimmerView setShowsRulerView:YES];
-    [self.trimmerView setRulerLabelInterval:10];
-    [self.trimmerView setTrackerColor:[UIColor cyanColor]];
-    [self.trimmerView setDelegate:self];
-    
-    // important: reset subviews
-    [self.trimmerView resetSubviews];
-    
-    [self.trimButton setHidden:NO];
-
-}
-
 #pragma mark - Actions
 
 - (void)deleteTempFile:(NSString*)videoFilePath
@@ -248,16 +252,6 @@
 
 
 
-- (IBAction)selectAsset:(id)sender
-{
-    UIImagePickerController *myImagePickerController = [[UIImagePickerController alloc] init];
-    myImagePickerController.sourceType =  UIImagePickerControllerSourceTypePhotoLibrary;
-    myImagePickerController.mediaTypes =
-    [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
-    myImagePickerController.delegate = self;
-    myImagePickerController.editing = NO;
-    [self presentViewController:myImagePickerController animated:YES completion:nil];
-}
 
 
 #pragma mark - Cut Video Actions
@@ -454,6 +448,7 @@
         [self stopPlaybackTimeChecker];
     }else {
         if (_restartOnPlay){
+            [self.trimmerView setPointStart];
             [self seekVideoToPos: self.startTime];
             [self.trimmerView seekToTime:self.startTime];
             _restartOnPlay = NO;

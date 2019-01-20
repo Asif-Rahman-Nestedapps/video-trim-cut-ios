@@ -206,11 +206,11 @@
         self.leftThumbView = [[ICGThumbView alloc] initWithFrame:leftThumbFrame color:self.themeColor right:NO];
     }
     
-//    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(self.thumbWidth, -5, 3, CGRectGetHeight(self.frameView.frame) + 10)];
-//    self.trackerView.backgroundColor = self.trackerColor;
-//    self.trackerView.layer.masksToBounds = true;
-//    self.trackerView.layer.cornerRadius = 2;
-//    [self addSubview:self.trackerView];
+    self.trackerView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetMaxX(self.leftOverlayView.frame)-3, -5, 3, CGRectGetHeight(self.frameView.frame) + 10)];
+    self.trackerView.backgroundColor = self.trackerColor;
+    self.trackerView.layer.masksToBounds = true;
+    self.trackerView.layer.cornerRadius = 2;
+    [self addSubview:self.trackerView];
     
     [self.leftThumbView.layer setMasksToBounds:YES];
     [self.leftOverlayView addSubview:self.leftThumbView];
@@ -351,7 +351,7 @@
     _prevTrackerTime = time;
     
     
-    CGFloat posToMove = time * self.widthPerSecond + self.thumbWidth - self.scrollView.contentOffset.x;
+    CGFloat posToMove = time * self.widthPerSecond + self.thumbWidth - self.scrollView.contentOffset.x+CGRectGetWidth([UIScreen mainScreen].bounds)/2;
     
     CGRect trackerFrame = self.trackerView.frame;
     trackerFrame.origin.x = posToMove;
@@ -577,6 +577,8 @@
     [self notifyDelegateOfEndEditing];
 }
 
+#pragma mark - Public Methods
+
 -(void)setPointStart{
     
     CGFloat point = self.scrollView.contentOffset.x+(CGRectGetWidth([UIScreen mainScreen].bounds)/2);
@@ -589,11 +591,7 @@
         self.rightOverlayView.hidden = false;
         self.rightOverlayView.frame = CGRectMake(point+self.maxLength*self.widthPerSecond, 0,self.scrollView.contentSize.width - point- self.maxLength*self.widthPerSecond , CGRectGetHeight(self.frameView.frame));
     }
-    
-    
-    
     [self notifyDelegateOfDidChange];
-    
 }
 
 
@@ -602,9 +600,7 @@
     self.rightOverlayView.hidden = false;
     CGFloat point = self.scrollView.contentOffset.x+(CGRectGetWidth([UIScreen mainScreen].bounds)/2);
     self.rightOverlayView.frame = CGRectMake(point, 0,self.scrollView.contentSize.width - point, CGRectGetHeight(self.frameView.frame));
-    
     [self notifyDelegateOfDidChange];
-
 }
 
 
