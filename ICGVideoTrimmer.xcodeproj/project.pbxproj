@@ -12,6 +12,8 @@
 		2CE63A101A74C43500B804F2 /* ICGVideoTrimmerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CE63A0D1A74C43500B804F2 /* ICGVideoTrimmerView.m */; };
 		2CEFE5D41A6BA4A300592ABF /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEFE5D31A6BA4A300592ABF /* AVFoundation.framework */; };
 		2CEFE5D61A6C164B00592ABF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CEFE5D51A6C164B00592ABF /* MobileCoreServices.framework */; };
+		31F34D2F289ED0A874184626 /* libPods-ICGVideoTrimmerTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E8D2EB43D8E3EAAC9662CFB0 /* libPods-ICGVideoTrimmerTests.a */; };
+		6937719E22C679B23675990B /* libPods-ICGVideoTrimmer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 69571C6D665CF81CD3B2B584 /* libPods-ICGVideoTrimmer.a */; };
 		AE8994D121F275200035DE7A /* YView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE8994D021F275200035DE7A /* YView.m */; };
 		AEBE109C21F1CECE00DE69D3 /* UISegmentedControl+WithoutBorder.m in Sources */ = {isa = PBXBuildFile; fileRef = AEBE109B21F1CECE00DE69D3 /* UISegmentedControl+WithoutBorder.m */; };
 		AED6CD3821EE5117007E4AC3 /* MKOVideoMerge.m in Sources */ = {isa = PBXBuildFile; fileRef = AED6CD3621EE5117007E4AC3 /* MKOVideoMerge.m */; };
@@ -37,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1508A62C8225060319B4C978 /* Pods-ICGVideoTrimmerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICGVideoTrimmerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICGVideoTrimmerTests/Pods-ICGVideoTrimmerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C513A6B1A7A169500CB2F9E /* ICGVideoTrimmer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGVideoTrimmer.h; sourceTree = "<group>"; };
 		2CE63A081A74C43500B804F2 /* ICGRulerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ICGRulerView.h; sourceTree = "<group>"; };
 		2CE63A091A74C43500B804F2 /* ICGRulerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGRulerView.m; sourceTree = "<group>"; };
@@ -46,6 +49,9 @@
 		2CE63A0D1A74C43500B804F2 /* ICGVideoTrimmerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ICGVideoTrimmerView.m; sourceTree = "<group>"; };
 		2CEFE5D31A6BA4A300592ABF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		2CEFE5D51A6C164B00592ABF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		4AFBC88B1B87A6AEDDAF2F22 /* Pods-ICGVideoTrimmerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICGVideoTrimmerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICGVideoTrimmerTests/Pods-ICGVideoTrimmerTests.release.xcconfig"; sourceTree = "<group>"; };
+		69571C6D665CF81CD3B2B584 /* libPods-ICGVideoTrimmer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ICGVideoTrimmer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A6CE42191934487F2B3A5E6 /* Pods-ICGVideoTrimmer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICGVideoTrimmer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ICGVideoTrimmer/Pods-ICGVideoTrimmer.debug.xcconfig"; sourceTree = "<group>"; };
 		AE8994CF21F275200035DE7A /* YView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YView.h; sourceTree = "<group>"; };
 		AE8994D021F275200035DE7A /* YView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YView.m; sourceTree = "<group>"; };
 		AEBE109A21F1CECE00DE69D3 /* UISegmentedControl+WithoutBorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UISegmentedControl+WithoutBorder.h"; sourceTree = "<group>"; };
@@ -55,6 +61,7 @@
 		AEEB129D21F361EE00203CED /* SampleVideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = SampleVideo.mp4; sourceTree = "<group>"; };
 		AEEB129F21F38C1200203CED /* Utility.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		AEEB12A021F38C1200203CED /* Utility.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		CE0340195F3B7E67E7E0D0E2 /* Pods-ICGVideoTrimmer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ICGVideoTrimmer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ICGVideoTrimmer/Pods-ICGVideoTrimmer.release.xcconfig"; sourceTree = "<group>"; };
 		DE4F1F521A67C9BB00478F77 /* ICGVideoTrimmer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICGVideoTrimmer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4F1F561A67C9BB00478F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4F1F571A67C9BB00478F77 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -68,6 +75,7 @@
 		DE4F1F6B1A67C9BB00478F77 /* ICGVideoTrimmerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ICGVideoTrimmerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE4F1F701A67C9BB00478F77 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE4F1F711A67C9BB00478F77 /* ICGVideoTrimmerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ICGVideoTrimmerTests.m; sourceTree = "<group>"; };
+		E8D2EB43D8E3EAAC9662CFB0 /* libPods-ICGVideoTrimmerTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ICGVideoTrimmerTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 			files = (
 				2CEFE5D61A6C164B00592ABF /* MobileCoreServices.framework in Frameworks */,
 				2CEFE5D41A6BA4A300592ABF /* AVFoundation.framework in Frameworks */,
+				6937719E22C679B23675990B /* libPods-ICGVideoTrimmer.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31F34D2F289ED0A874184626 /* libPods-ICGVideoTrimmerTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,6 +113,26 @@
 			);
 			path = Source;
 			sourceTree = SOURCE_ROOT;
+		};
+		86E2805B24B7257923B1CA21 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6A6CE42191934487F2B3A5E6 /* Pods-ICGVideoTrimmer.debug.xcconfig */,
+				CE0340195F3B7E67E7E0D0E2 /* Pods-ICGVideoTrimmer.release.xcconfig */,
+				1508A62C8225060319B4C978 /* Pods-ICGVideoTrimmerTests.debug.xcconfig */,
+				4AFBC88B1B87A6AEDDAF2F22 /* Pods-ICGVideoTrimmerTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9D2960D73CAC05ACAB0DED2D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				69571C6D665CF81CD3B2B584 /* libPods-ICGVideoTrimmer.a */,
+				E8D2EB43D8E3EAAC9662CFB0 /* libPods-ICGVideoTrimmerTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
 		};
 		AE8994CE21F275060035DE7A /* CustomView */ = {
 			isa = PBXGroup;
@@ -139,6 +169,8 @@
 				DE4F1F541A67C9BB00478F77 /* ICGVideoTrimmer */,
 				DE4F1F6E1A67C9BB00478F77 /* ICGVideoTrimmerTests */,
 				DE4F1F531A67C9BB00478F77 /* Products */,
+				86E2805B24B7257923B1CA21 /* Pods */,
+				9D2960D73CAC05ACAB0DED2D /* Frameworks */,
 			);
 			indentWidth = 4;
 			sourceTree = "<group>";
@@ -208,6 +240,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE4F1F751A67C9BB00478F77 /* Build configuration list for PBXNativeTarget "ICGVideoTrimmer" */;
 			buildPhases = (
+				15ECF21EFBDF398D49773CC5 /* [CP] Check Pods Manifest.lock */,
 				DE4F1F4E1A67C9BB00478F77 /* Sources */,
 				DE4F1F4F1A67C9BB00478F77 /* Frameworks */,
 				DE4F1F501A67C9BB00478F77 /* Resources */,
@@ -225,6 +258,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DE4F1F781A67C9BB00478F77 /* Build configuration list for PBXNativeTarget "ICGVideoTrimmerTests" */;
 			buildPhases = (
+				A52802CC5B8E55C8840A6B34 /* [CP] Check Pods Manifest.lock */,
 				DE4F1F671A67C9BB00478F77 /* Sources */,
 				DE4F1F681A67C9BB00478F77 /* Frameworks */,
 				DE4F1F691A67C9BB00478F77 /* Resources */,
@@ -297,6 +331,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		15ECF21EFBDF398D49773CC5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ICGVideoTrimmer-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A52802CC5B8E55C8840A6B34 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ICGVideoTrimmerTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE4F1F4E1A67C9BB00478F77 /* Sources */ = {
@@ -432,6 +505,7 @@
 		};
 		DE4F1F761A67C9BB00478F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A6CE42191934487F2B3A5E6 /* Pods-ICGVideoTrimmer.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LG4R8JRQ9E;
@@ -444,6 +518,7 @@
 		};
 		DE4F1F771A67C9BB00478F77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE0340195F3B7E67E7E0D0E2 /* Pods-ICGVideoTrimmer.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LG4R8JRQ9E;
@@ -456,6 +531,7 @@
 		};
 		DE4F1F791A67C9BB00478F77 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1508A62C8225060319B4C978 /* Pods-ICGVideoTrimmerTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -475,6 +551,7 @@
 		};
 		DE4F1F7A1A67C9BB00478F77 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4AFBC88B1B87A6AEDDAF2F22 /* Pods-ICGVideoTrimmerTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MBProgressHUD.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Utility : NSObject
 
 + (NSString*)secondToTimeFormat:(CGFloat)seconds;
++ (void)showProgressHUD:(UIView*)view;
++ (void)hidProgressHUD:(UIView*)view;
 
 @end
 

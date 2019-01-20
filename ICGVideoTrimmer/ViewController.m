@@ -297,6 +297,7 @@
                 default:
                     NSLog(@"NONE");
                     dispatch_async(dispatch_get_main_queue(), ^{
+                        [Utility showProgressHUD:self.view];
                         NSURL *movieUrl = [NSURL fileURLWithPath:self.tempVideoPath];
                     });
                     [self trimEndVideoEndPos];
@@ -413,7 +414,7 @@
                 default:
                     NSLog(@"NONE");
                     dispatch_async(dispatch_get_main_queue(), ^{
-                        
+                        [Utility showProgressHUD:self.view];
                         NSURL *movieUrl = [NSURL fileURLWithPath:self.tempVideoPath];
                         UISaveVideoAtPathToSavedPhotosAlbum([movieUrl relativePath], self,@selector(video:didFinishSavingWithError:contextInfo:), nil);
                     });
@@ -427,6 +428,7 @@
 
 
 - (void)video:(NSString*)videoPath didFinishSavingWithError:(NSError*)error contextInfo:(void*)contextInfo {
+    [Utility hidProgressHUD:self.view];
     if (error) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Video Saving Failed"
                                                        delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];

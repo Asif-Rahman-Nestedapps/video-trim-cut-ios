@@ -22,4 +22,12 @@
 }
 
 
++ (void)showProgressHUD:(UIView*)view{
+    [MBProgressHUD showHUDAddedTo:view animated:true];
+}
++ (void)hidProgressHUD:(UIView*)view{
+    [MBProgressHUD hideHUDForView:view  animated:true];
+}
+
+
 @end
